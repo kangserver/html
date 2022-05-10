@@ -1,21 +1,17 @@
-image: alpine:latest
-
-pages:
-  stage: deploy
+master:
+  tags:
+    - build
+    - deploy
   script:
-  - echo 'Nothing to do...'
-  artifacts:
-    paths:
-    - public
+  - echo 'Build Master'
   only:
   - master
 
-pages:
-  stage: deploy
+development:
+  tags:
+    - build
+    - deploy
   script:
-  - echo 'Nothing to do...'
-  artifacts:
-    paths:
-    - public
+  - echo 'Build Dev'
   only:
   - dev
