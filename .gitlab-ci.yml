@@ -4,9 +4,8 @@ master:
     - deploy
   script:
   - echo 'Build Master'
-  - cd /www/wwwroot/zikri.web.id/
-  - git stash
-  - sudo git pull origin master
+  - git pull origin master
+  - sudo mv . /www/wwwroot/zikri.web.id
   - echo "Cleaning Up"
   - sudo rm -rf /home/gitlab-runner/builds/*
   only:
