@@ -4,6 +4,9 @@ master:
     - deploy
   script:
   - echo 'Build Master'
+  - cd /www/wwwroot/zikri.web.id/
+  - git stash
+  - sudo git pull origin master
   only:
   - master
 
@@ -13,5 +16,8 @@ development:
     - deploy
   script:
   - echo 'Build Dev'
+  - cd /www/wwwroot/dev.zikri.web.id/
+  - git stash
+  - sudo git pull origin dev
   only:
   - dev
