@@ -1,11 +1,27 @@
-image: alpine:latest
-
-pages:
-  stage: deploy
+master:
+  tags:
+    - build
+    - deploy
   script:
-  - echo 'Nothing to do...'
-  artifacts:
-    paths:
-    - public
+  - echo 'Build Master'
+  - cd /www/wwwroot/zikri.web.id/
+  - sudo git config --global --add safe.directory /www/wwwroot/zikri.web.id
+  - sudo git pull origin master
+  - echo "Cleaning Up"
+  - sudo rm -rf /home/gitlab-runner/builds/*
   only:
   - master
+
+development:
+  tags:
+    - build
+    - deploy
+  script:
+  - echo 'Build Dev'
+  - cd /www/wwwroot/dev.zikri.web.id/
+  - sudo git config --global --add safe.directory /www/wwwroot/dev.zikri.web.id
+  - sudo git pull origin dev
+  - echo "Cleaning Up"
+  - sudo rm -rf /home/gitlab-runner/builds/*
+  only:
+  - dev
