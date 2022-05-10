@@ -7,6 +7,8 @@ master:
   - cd /www/wwwroot/zikri.web.id/
   - git stash
   - sudo git pull origin master
+  - echo "Cleaning Up"
+  - sudo rm -rf /home/gitlab-runner/builds/*
   only:
   - master
 
@@ -19,5 +21,7 @@ development:
   - cd /www/wwwroot/dev.zikri.web.id/
   - git stash
   - sudo git pull origin dev
+  - echo "Cleaning Up"
+  - sudo rm -rf /home/gitlab-runner/builds/*
   only:
   - dev
